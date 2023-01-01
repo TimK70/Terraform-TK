@@ -1,6 +1,5 @@
 #------------VPC.tf file----------
-data "aws_vpc" "default" {
-  default = true
+resource "aws_default_vpc" "default" {
 }
 
 

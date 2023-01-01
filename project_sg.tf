@@ -1,6 +1,6 @@
 #------Security group set up-----------
 resource "aws_security_group" "http_allow" {
-  name        = "http_allow"
+  name        = "http_SSH_allow"
   description = "Enable HTTP access to ec2 instances"
 
   ingress {
@@ -27,6 +27,6 @@ resource "aws_security_group" "http_allow" {
   }
 
   tags = {
-    Name = "http_allow"
+    Name = "http_ssh_allow"
   }
 }

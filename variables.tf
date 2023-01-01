@@ -7,8 +7,8 @@ variable "ec2_instance_type" {
 
 variable "ami_id" {
   type        = string
-  description = "AMI of our instance in us-east-2"
-  default     = "ami-0a606d8395a538502"
+  description = "AMI of our instance in us-east-1"
+  default     = "ami-0b5eea76982371e91"
 }
 
 variable "instance_count" {
@@ -41,7 +41,7 @@ variable "cidr_blocks" {
 variable "azs" {
   type        = list(string)
   description = "Availability Zones for instances"
-  default     = ["us-east-2a", "us-east-2b", "us-east-2c"]
+  default     = ["us-east-1a", "us-east-1b", "us-east-1c"]
 }
 
 #define public subnet
@@ -51,12 +51,14 @@ variable "public_subnets_cidrs" {
   default     = []
 }
 
-#define internet gateway
-resource "aws_internet_gateway" "igw" {
-  tags = {
-    Name = "igw"
-  }
+variable "vpc_cidr" {
+  type = string
 }
+
+variable "public_cidrs" {
+  type = list
+}
+
 
 data "http" "myip" {
   url = "http://ipv4.icanhazip.com"
