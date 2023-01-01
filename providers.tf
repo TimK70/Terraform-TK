@@ -7,6 +7,7 @@ terraform {
     }
   }
 }
+
 #2-This will be our default region. If you're using an IDE other than Cloud9, you will
 # put your access_key and secret_key here, below region.
 provider "aws" {
